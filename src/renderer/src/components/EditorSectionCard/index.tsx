@@ -1,6 +1,7 @@
 import React from 'react'
 import { setUserValue, useAppStore } from '@renderer/store'
 import { PLACEHOLDER_PER_TYPE } from '@renderer/pages/Editor/helper'
+import WifiForm from '@renderer/pages/Editor/form/WifiForm'
 
 const EditorSectionCard = (): React.JSX.Element => {
   const type = useAppStore.use.type()
@@ -15,16 +16,9 @@ const EditorSectionCard = (): React.JSX.Element => {
       <div className="p-3">
         <div>
           <p className="text-center font-bold">Personnalisation</p>
-          <p>Type: {type}</p>
         </div>
         <div className="my-6">
-          <input
-            type="text"
-            placeholder={PLACEHOLDER_PER_TYPE[type]}
-            className="w-full p-2"
-            onChange={handleChange}
-            defaultValue={value}
-          />
+          <WifiForm />
         </div>
       </div>
     </div>
