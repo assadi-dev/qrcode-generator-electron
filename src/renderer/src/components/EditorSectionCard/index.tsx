@@ -1,9 +1,13 @@
 import React from 'react'
+import { setUserValue, useAppStore } from '@renderer/store'
+import { PLACEHOLDER_PER_TYPE } from '@renderer/pages/Editor/helper'
 
-const EditorSectionCard = () => {
+const EditorSectionCard = (): React.JSX.Element => {
+  const type = useAppStore.use.type()
+  const value = useAppStore.use.value()
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const value = e.target.value
-    console.log(value)
+    setUserValue(e.target.value)
   }
 
   return (
@@ -11,13 +15,15 @@ const EditorSectionCard = () => {
       <div className="p-3">
         <div>
           <p className="text-center font-bold">Personnalisation</p>
+          <p>Type: {type}</p>
         </div>
         <div className="my-6">
           <input
             type="text"
-            placeholder="Entrer votre text"
+            placeholder={PLACEHOLDER_PER_TYPE[type]}
             className="w-full p-2"
             onChange={handleChange}
+            defaultValue={value}
           />
         </div>
       </div>
