@@ -1,7 +1,7 @@
 import React from 'react'
 import { ListButtonElements } from './ListButtonElements'
 import ButtonDestinationItem from './ButtonDestinationItem'
-import { setType } from '@renderer/store'
+import { setType } from '@renderer/store/store'
 
 const ButtonDestinationGridCard = (): React.JSX.Element => {
   const handleClickType = (name: string): void => {

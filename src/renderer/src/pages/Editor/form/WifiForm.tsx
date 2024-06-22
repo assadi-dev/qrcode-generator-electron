@@ -1,7 +1,7 @@
 import Input from '@renderer/components/Forms/Input'
 import React from 'react'
 import { PLACEHOLDER_FOR_WIFI } from '../helper'
-import { useAppStore } from '@renderer/store'
+import { useAppStore } from '@renderer/store/store'
 
 const WifiForm = () => {
   return (

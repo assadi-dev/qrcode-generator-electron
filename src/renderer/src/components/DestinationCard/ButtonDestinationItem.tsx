@@ -1,6 +1,6 @@
 import React from 'react'
 import OutlineButtonIcon from '../Buttons.tsx/OutlineButtonIcon'
-import { useAppStore } from '@renderer/store'
+import { useAppStore } from '@renderer/store/store'
 
 interface PropType {
   label: string

@@ -1,5 +1,5 @@
 import React from 'react'
-import { setUserValue, useAppStore } from '@renderer/store'
+import { setUserValue, useAppStore } from '@renderer/store/store'
 import { PLACEHOLDER_PER_TYPE } from '@renderer/pages/Editor/helper'
 import WifiForm from '@renderer/pages/Editor/form/WifiForm'
 
