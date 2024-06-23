@@ -1,13 +1,18 @@
 import { Options } from 'new-awesome-qrcode'
 import { create } from 'zustand'
 import { createSelectors } from './helper'
+import { produce } from 'immer'
 
-export const qrCodeDefaultConfig: Options = {
+type CustomOption = {
+  typeSecurity: string
+}
+export const qrCodeDefaultConfig: CustomOption & Options = {
   width: 800,
   height: 800,
   type: 'canvas',
   margin: 0,
   data: '',
+  typeSecurity: 'WPA',
   dotsOptions: {
     color: '#6A1A4C',
     type: 'rounded'
@@ -31,8 +36,36 @@ export const qrCodeDefaultConfig: Options = {
   }
 }
 
-export const useQrCodeConfigStoreBase = create<Options>(() => ({
+export const useQrCodeConfigStoreBase = create<Options & CustomOption>(() => ({
   ...qrCodeDefaultConfig
 }))
 
 export const useQrCodeConfigStore = createSelectors(useQrCodeConfigStoreBase)
+
+/**
+ * Met à jour la valeur du qrCode
+ * @param value valeur du QR Code
+ */
+export const setDataQrCode = (value: string): void => {
+  useQrCodeConfigStore.setState(
+    produce((state) => {
+      state.data = value
+    })
+  )
+}
+
+type MainConfigQrCode = {
+  width?: number
+  height?: number
+  type?: 'canvas' | 'svg'
+  margin?: number
+  data?: string
+}
+
+/**
+ * Met à jour les config principale du qrCode
+ * @param values valeur du QR Code
+ */
+export const setMainConfigQrCode = (values: MainConfigQrCode): void => {
+  useQrCodeConfigStore.setState((state) => ({ ...state, ...values }))
+}

@@ -14,3 +14,8 @@ export const PLACEHOLDER_FOR_CONTACT = {
   lastname: `Entrez votre Nom`,
   password: 'Entrez votre Prénom'
 }
+
+export const AUTHENTICATION_OPTIONS = [
+  { label: 'WPA', value: 'WPA' },
+  { label: 'WEP', value: 'WEP' }
+]

@@ -9,13 +9,11 @@ const PreviewQrCodeCard = () => {
   const extension = 'jpeg'
   const quality = 0.75
 
-  const qrCodeValue = `http://google.com`
-  const qrCodeSettingGenerator = useQrCodeConfigStore()
+  const qrCodeSettingGenerator = useQrCodeConfigStore.use.data()
 
   React.useEffect(() => {
     const qrCode = new QRCodeStyling({
-      ...qrCodeSettingGenerator,
-      data: qrCodeValue
+      data: qrCodeSettingGenerator
     })
     const SetDataUrl = async (): Promise<void> => {
       if (!prevQrcodeRef.current) return
@@ -26,7 +24,7 @@ const PreviewQrCodeCard = () => {
     }
 
     SetDataUrl()
-  }, [])
+  }, [qrCodeSettingGenerator])
   return (
     <div className="w-1/3 bg-slate-100 rounded shadow-lg  p-3 text-center flex flex-col items-center">
       <div>
