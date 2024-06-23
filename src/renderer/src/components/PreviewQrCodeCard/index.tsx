@@ -23,8 +23,8 @@ const PreviewQrCodeCard = () => {
   const qrCodeData = React.useMemo(() => {
     if (!qrCodeSettingGenerator && !prevQrcodeRef.current) return null
     const qrCode = new QRCodeStyling<Options & CustomOption>({
-      width: 800,
-      height: 800,
+      width: 900,
+      height: 900,
       type: 'canvas',
       margin: qrCodeSettingGeneratorMargin,
       data: qrCodeSettingGeneratorData,
@@ -35,7 +35,7 @@ const PreviewQrCodeCard = () => {
       qrOptions: qrCodeSettingGeneratorQrOption
     })
     const SetDataUrl = async (): Promise<void> => {
-      if (!prevQrcodeRef.current) return
+      if (!prevQrcodeRef.current || !qrCodeSettingGeneratorData) return
       const dataBase64 = await qrCode.toDataUrl(extension, quality)
       prevQrcodeRef.current.src = dataBase64
       prevQrcodeRef.current.alt = `QRCODE-Picture for connect to WIFI`

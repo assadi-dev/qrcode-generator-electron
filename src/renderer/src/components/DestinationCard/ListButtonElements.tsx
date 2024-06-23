@@ -37,10 +37,10 @@ export const ListButtonElements: ListButtonElementsType[] = [
     iconElement: Email,
     label: 'Email',
     value: 'email'
-  }
-  /*   {
+  },
+  {
     iconElement: User,
     label: 'Contact',
     value: 'contact'
-  }, */
+  }
 ]

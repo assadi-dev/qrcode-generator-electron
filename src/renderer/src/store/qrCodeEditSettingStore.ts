@@ -10,7 +10,7 @@ export const qrCodeDefaultConfig: CustomOption & Options = {
   width: 800,
   height: 800,
   type: 'canvas',
-  margin: 25,
+  margin: 0,
   data: '',
   typeSecurity: 'WPA',
   dotsOptions: {
@@ -31,7 +31,7 @@ export const qrCodeDefaultConfig: CustomOption & Options = {
     imageSize: 0.2
   },
   qrOptions: {
-    typeNumber: 4,
+    typeNumber: 0,
     errorCorrectionLevel: 'Q'
   }
 }
