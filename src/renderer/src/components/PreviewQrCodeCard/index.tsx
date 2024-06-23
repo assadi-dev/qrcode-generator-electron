@@ -20,7 +20,7 @@ const PreviewQrCodeCard = () => {
   const qrCodeSettingGeneratorQrOption = useQrCodeConfigStore.use.qrOptions()
 
   const qrCodeData = React.useMemo(() => {
-    if (!qrCodeSettingGenerator) return null
+    if (!qrCodeSettingGenerator && !prevQrcodeRef.current) return null
     const qrCode = new QRCodeStyling<Options & CustomOption>({
       width: 800,
       height: 800,
@@ -42,11 +42,19 @@ const PreviewQrCodeCard = () => {
 
     SetDataUrl()
     return qrCode
-  }, [qrCodeSettingGenerator])
+  }, [
+    qrCodeSettingGeneratorMargin,
+    qrCodeSettingGeneratorData,
+    qrCodeSettingGeneratorTypeSecurity,
+    qrCodeSettingGeneratorDotOptions,
+    qrCodeSettingGeneratorCornersSquareOptions,
+    qrCodeSettingGeneratorBackgroundOptions,
+    qrCodeSettingGeneratorQrOption
+  ])
 
-  const handleClickDownload = () => {
+  const handleClickDownload = (): void => {
     if (qrCodeData) {
-      qrCodeData.download({ extension: extension, name: `qrcode-${dt.getTime()}` })
+      qrCodeData?.download({ extension: extension, name: `qrcode-${dt.getTime()}` })
     }
   }
 

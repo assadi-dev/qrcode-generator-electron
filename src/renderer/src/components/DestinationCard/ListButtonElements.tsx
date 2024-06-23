@@ -18,10 +18,11 @@ export const ListButtonElements: ListButtonElementsType[] = [
     value: 'url'
   },
   {
-    iconElement: Email,
-    label: 'Email',
-    value: 'email'
+    iconElement: Wifi,
+    label: 'WIFI',
+    value: 'wifi'
   },
+
   {
     iconElement: Phone,
     label: 'Téléphone',
@@ -33,13 +34,13 @@ export const ListButtonElements: ListButtonElementsType[] = [
     value: 'sms'
   },
   {
+    iconElement: Email,
+    label: 'Email',
+    value: 'email'
+  }
+  /*   {
     iconElement: User,
     label: 'Contact',
     value: 'contact'
-  },
-  {
-    iconElement: Wifi,
-    label: 'WIFI',
-    value: 'wifi'
-  }
+  }, */
 ]

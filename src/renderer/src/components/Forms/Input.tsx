@@ -5,7 +5,7 @@ interface PropsType extends ComponentProps<'input'> {
 }
 const Input = React.forwardRef(({ label, error, ...props }: PropsType, ref) => {
   return (
-    <div className="mb-4">
+    <div className="mb-4 w-full">
       <label htmlFor={props.id} className="block text-sm font-medium text-gray-700">
         {label}
       </label>
