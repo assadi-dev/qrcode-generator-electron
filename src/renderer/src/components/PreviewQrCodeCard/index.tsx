@@ -18,9 +18,10 @@ const PreviewQrCodeCard = (): React.JSX.Element => {
   const qrCodeSettingGeneratorMargin = useQrCodeConfigStore.use.margin()
   const qrCodeSettingGeneratorQrOption = useQrCodeConfigStore.use.qrOptions()
 
+  type qrOption = Options & CustomOption
   const qrCodeData = React.useMemo(() => {
     if (!qrCodeSettingGenerator && !prevQrcodeRef.current) return null
-    const qrCode = new QRCodeStyling<Options & CustomOption>({
+    const qrCode = new QRCodeStyling<qrOption>({
       width: 900,
       height: 900,
       type: 'canvas',
