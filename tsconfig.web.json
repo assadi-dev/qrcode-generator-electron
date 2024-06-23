@@ -13,8 +13,9 @@
     "paths": {
       "@renderer/*": [
         "src/renderer/src/*"
-      ],
-     "@database":["src/database"]
+      ]
+   
     }
+   
   }
 }

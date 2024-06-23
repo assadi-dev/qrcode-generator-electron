@@ -1,6 +1,6 @@
-import QRCodeStyling, { Options } from 'new-awesome-qrcode'
+import QRCodeStyling from 'new-awesome-qrcode'
 import React from 'react'
-import { CustomOption, useQrCodeConfigStore } from '@renderer/store/qrCodeEditSettingStore'
+import { useQrCodeConfigStore } from '@renderer/store/qrCodeEditSettingStore'
 import ArrowDownload from '../icons/ArrowDownload'
 
 const PreviewQrCodeCard = (): React.JSX.Element => {
@@ -18,16 +18,14 @@ const PreviewQrCodeCard = (): React.JSX.Element => {
   const qrCodeSettingGeneratorMargin = useQrCodeConfigStore.use.margin()
   const qrCodeSettingGeneratorQrOption = useQrCodeConfigStore.use.qrOptions()
 
-  type qrOption = Options & CustomOption
   const qrCodeData = React.useMemo(() => {
     if (!qrCodeSettingGenerator && !prevQrcodeRef.current) return null
-    const qrCode = new QRCodeStyling<qrOption>({
+    const qrCode = new QRCodeStyling({
       width: 900,
       height: 900,
       type: 'canvas',
       margin: qrCodeSettingGeneratorMargin,
       data: qrCodeSettingGeneratorData,
-      typeSecurity: qrCodeSettingGeneratorTypeSecurity,
       dotsOptions: qrCodeSettingGeneratorDotOptions,
       cornersSquareOptions: qrCodeSettingGeneratorCornersSquareOptions,
       backgroundOptions: qrCodeSettingGeneratorBackgroundOptions,
