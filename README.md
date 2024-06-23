@@ -37,3 +37,4 @@ $ npm run build:linux
 
 ![Capture](resources/screen-url.png)
 ![Capture](resources/screen-wifi.png)
+![Capture](resources/screen-vcard.png)
