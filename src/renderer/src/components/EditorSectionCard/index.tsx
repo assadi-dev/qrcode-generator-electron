@@ -1,10 +1,11 @@
 import React from 'react'
 import WifiForm from '@renderer/pages/Editor/form/WifiForm'
+import { RenderFormView } from '@renderer/pages/Editor/ListViews'
+import { useAppStore } from '@renderer/store/store'
 
 const EditorSectionCard = (): React.JSX.Element => {
-  /*   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setUserValue(e.target.value)
-  } */
+  const viewType = useAppStore.use.type()
+  const ViewRenderSelected = RenderFormView[viewType].element
 
   return (
     <div className="w-1/2 bg-slate-100 rounded shadow-lg">
@@ -13,7 +14,7 @@ const EditorSectionCard = (): React.JSX.Element => {
           <p className="text-center font-bold">Personnalisation</p>
         </div>
         <div className="my-6">
-          <WifiForm />
+          <ViewRenderSelected />
         </div>
       </div>
     </div>

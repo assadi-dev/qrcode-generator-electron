@@ -1,30 +1,14 @@
 import { create } from 'zustand'
 import { createSelectors } from './helper'
 
-type Wifi = {
-  ssid: string
-  password: string
-}
-
-type Contact = {
-  lastName: string
-  firstName: string
-}
-
 type Store = {
   type: string
   file: File | null
-  value: string
-  wifi: Wifi | null
-  contact: Contact | null
 }
 
 export const useAppStoreBase = create<Store>(() => ({
   type: 'url',
-  file: null,
-  value: '',
-  contact: null,
-  wifi: null
+  file: null
 }))
 
 export const useAppStore = createSelectors(useAppStoreBase)
