@@ -1,5 +1,5 @@
 import Input from '@renderer/components/Forms/Input'
-import React, { ChangeEvent } from 'react'
+import React from 'react'
 import { AUTHENTICATION_OPTIONS, PLACEHOLDER_FOR_WIFI } from '../helper'
 import { useForm } from 'react-hook-form'
 import { setDataQrCode } from '@renderer/store/qrCodeEditSettingStore'
@@ -7,7 +7,7 @@ import Select from '@renderer/components/Forms/Select'
 import InputPassword from '@renderer/components/Forms/InputPassword'
 import { Logger } from '@renderer/utils/tools'
 
-const WifiForm = () => {
+const WifiForm = (): React.JSX.Element => {
   const {
     handleSubmit,
     register,

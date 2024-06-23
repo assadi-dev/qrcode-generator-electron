@@ -11,8 +11,7 @@ const ContactForm = (): React.JSX.Element => {
   const {
     handleSubmit,
     register,
-    getValues,
-    watch,
+
     formState: { errors }
   } = useForm<ContactFormType>({
     mode: 'onChange',

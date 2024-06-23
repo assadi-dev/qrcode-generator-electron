@@ -1,6 +1,6 @@
 import React from 'react'
 
-const GeoLocationForm = () => {
+const GeoLocationForm = (): React.JSX.Element => {
   return <div></div>
 }
 

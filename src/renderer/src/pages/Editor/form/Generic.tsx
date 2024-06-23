@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Generic = () => {
+const Generic = (): React.JSX.Element => {
   return <div></div>
 }
 
