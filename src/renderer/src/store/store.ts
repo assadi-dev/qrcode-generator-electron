@@ -4,11 +4,13 @@ import { createSelectors } from './helper'
 type Store = {
   type: string
   file: File | null
+  value: string | null
 }
 
 export const useAppStoreBase = create<Store>(() => ({
   type: 'url',
-  file: null
+  file: null,
+  value: ''
 }))
 
 export const useAppStore = createSelectors(useAppStoreBase)

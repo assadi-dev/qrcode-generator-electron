@@ -1,6 +1,5 @@
 import { ContactFormType } from './form/FormSchemas'
 import VCard from 'vcard-creator'
-import vCardsJS from 'vcards-js'
 
 export const PLACEHOLDER_PER_TYPE = {
   url: 'Entrez votre url',
@@ -47,16 +46,12 @@ export const AUTHENTICATION_OPTIONS = [
 export const formattedToVCard = (userData: ContactFormType): string => {
   const { lastname, firstname, phone, email, organization, url } = userData
   //create a new vCard
-  const vCard = vCardsJS()
-  vCard.firstName = 'John'
-  vCard.lastName = 'Doe'
-  vCard.organization = 'Company Name'
-  vCard.workPhone = '123-456-7890'
-  vCard.email = 'john.doe@example.com'
-  vCard.title = 'Software Engineer'
-  vCard.url = 'https://example.com'
-
-  const formattedData = vCard.getFormattedString()
+  const vCard = new VCard()
+  vCard.addName(lastname)
+  vCard.addEmail(email)
+  vCard.addPhoneNumber(phone)
+  vCard.addCompany(organization)
+  const formattedData = vCard.toString()
 
   return formattedData.trim()
 }

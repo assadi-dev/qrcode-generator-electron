@@ -3,6 +3,7 @@ import QRCodeStyling, { Options } from 'new-awesome-qrcode'
 import React from 'react'
 import { getDataUrlAsync } from './helper'
 import { CustomOption, useQrCodeConfigStore } from '@renderer/store/qrCodeEditSettingStore'
+import ArrowDownload from '../icons/ArrowDownload'
 
 const PreviewQrCodeCard = () => {
   const prevQrcodeRef = React.useRef<HTMLImageElement | null>(null)
@@ -69,11 +70,15 @@ const PreviewQrCodeCard = () => {
         ref={prevQrcodeRef}
         className="my-8  w-[280px] h-[250px] bg-white border-slate-300 border-2 rounded"
       />
-      <div>
-        <button type="button" onClick={handleClickDownload}>
-          Télécharger
-        </button>
-      </div>
+
+      <button
+        type="button"
+        className="flex justify-center items-center w-full my-3 px-3 py-2 bg-[#1b1b1f]  text-white rounded"
+        onClick={handleClickDownload}
+      >
+        <ArrowDownload className="size-5 mr-1" />
+        Télécharger
+      </button>
     </div>
   )
 }

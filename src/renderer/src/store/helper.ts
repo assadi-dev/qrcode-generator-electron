@@ -13,3 +13,7 @@ export const createSelectors = <S extends UseBoundStore<StoreApi<object>>>(_stor
 
   return store
 }
+
+export const persistData = (payload: { key: string; data: any }) => {
+  window.electron.ipcRenderer.send('save', payload)
+}

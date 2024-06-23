@@ -24,6 +24,7 @@
     "@electron-toolkit/preload": "^3.0.0",
     "@electron-toolkit/utils": "^3.0.0",
     "@hookform/resolvers": "^3.6.0",
+    "electron-store": "^10.0.0",
     "electron-updater": "^6.1.7",
     "immer": "^10.1.1",
     "new-awesome-qrcode": "^1.1.0",
