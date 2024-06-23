@@ -32,3 +32,8 @@ $ npm run build:mac
 # For Linux
 $ npm run build:linux
 ```
+
+#### Preview
+
+![Capture](resources/screen-url.png)
+![Capture](resources/screen-wifi.png)
