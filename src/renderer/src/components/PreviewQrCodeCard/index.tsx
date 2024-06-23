@@ -1,11 +1,9 @@
-import { Logger } from '@renderer/utils/tools'
 import QRCodeStyling, { Options } from 'new-awesome-qrcode'
 import React from 'react'
-import { getDataUrlAsync } from './helper'
 import { CustomOption, useQrCodeConfigStore } from '@renderer/store/qrCodeEditSettingStore'
 import ArrowDownload from '../icons/ArrowDownload'
 
-const PreviewQrCodeCard = () => {
+const PreviewQrCodeCard = (): React.JSX.Element => {
   const prevQrcodeRef = React.useRef<HTMLImageElement | null>(null)
   const extension = 'jpeg'
   const quality = 0.75

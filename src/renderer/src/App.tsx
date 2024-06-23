@@ -1,7 +1,7 @@
 import Editor from './pages/Editor'
 
 function App(): JSX.Element {
-  const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
+  //const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
 
   return (
     <>
