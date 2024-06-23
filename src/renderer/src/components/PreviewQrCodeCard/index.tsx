@@ -11,7 +11,6 @@ const PreviewQrCodeCard = (): React.JSX.Element => {
 
   const qrCodeSettingGeneratorData = useQrCodeConfigStore.use.data()
   const qrCodeSettingGeneratorTypeSecurity = useQrCodeConfigStore.use.typeSecurity()
-  const qrCodeSettingGenerator = useQrCodeConfigStore.use.data()
   const qrCodeSettingGeneratorDotOptions = useQrCodeConfigStore.use.dotsOptions()
   const qrCodeSettingGeneratorBackgroundOptions = useQrCodeConfigStore.use.backgroundOptions()
   const qrCodeSettingGeneratorCornersSquareOptions = useQrCodeConfigStore.use.cornersSquareOptions()
@@ -19,7 +18,7 @@ const PreviewQrCodeCard = (): React.JSX.Element => {
   const qrCodeSettingGeneratorQrOption = useQrCodeConfigStore.use.qrOptions()
 
   const qrCodeData = React.useMemo(() => {
-    if (!qrCodeSettingGenerator && !prevQrcodeRef.current) return null
+    if (!qrCodeSettingGeneratorData && !prevQrcodeRef.current) return null
     const qrCode = new QRCodeStyling({
       width: 900,
       height: 900,

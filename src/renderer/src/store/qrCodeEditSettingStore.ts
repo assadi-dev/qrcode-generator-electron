@@ -1,12 +1,59 @@
-import { Options } from 'new-awesome-qrcode'
+import {
+  CornerDotType,
+  CornerSquareType,
+  DotType,
+  DrawType,
+  ErrorCorrectionLevel,
+  Mode,
+  Options,
+  TypeNumber
+} from 'new-awesome-qrcode'
 import { create } from 'zustand'
 import { createSelectors } from './helper'
 import { produce } from 'immer'
 
-export type CustomOption = {
+export interface CustomOption extends Options {
+  width: number
+  height: number
+  type: DrawType
+  margin: number
+  data: string
   typeSecurity: string
+  dotsOptions: {
+    type?: DotType
+    color?: string
+  }
+  cornersSquareOptions: {
+    type?: CornerSquareType
+    color?: string
+  }
+  cornersDotOptions?: {
+    type?: CornerDotType
+    color?: string
+  }
+  backgroundOptions: {
+    enable?: boolean
+    color?: string
+  }
+  imageOptions?: {
+    hideBackgroundDots?: boolean
+    imageSize?: number
+    crossOrigin?: string
+    margin?: number
+  }
+
+  backgroundImageOptions?: {
+    enable?: boolean
+    opacity?: number
+    crossOrigin?: string
+  }
+  qrOptions: {
+    typeNumber?: TypeNumber
+    mode?: Mode
+    errorCorrectionLevel?: ErrorCorrectionLevel
+  }
 }
-export const qrCodeDefaultConfig: CustomOption & Options = {
+export const qrCodeDefaultConfig: CustomOption = {
   width: 800,
   height: 800,
   type: 'canvas',
@@ -36,7 +83,7 @@ export const qrCodeDefaultConfig: CustomOption & Options = {
   }
 }
 
-export const useQrCodeConfigStoreBase = create<Options & CustomOption>(() => ({
+export const useQrCodeConfigStoreBase = create<CustomOption>(() => ({
   ...qrCodeDefaultConfig
 }))
 
